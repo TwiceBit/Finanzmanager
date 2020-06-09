@@ -22,41 +22,37 @@ $json
     }*/
 
 
-    $res = Database::getAllTransactions();
+$res = Database::getAllTransactions();
 
-    $data = [];
-    $label= [];
-    $summe = 0.0;
-    while ($row = $res->fetch_assoc()) {
-        
-        if($row['beschreibung'] == null && $row['betrag'] == null) continue;
+$data = [];
+$label = [];
+$summe = 0.0;
+while ($row = $res->fetch_assoc()) {
 
-        $summe += $row['betrag'];
+    if ($row['beschreibung'] == null && $row['betrag'] == null) continue;
 
-        array_push($label, $row['beschreibung']);
-        array_push($data, $summe);
-   
-    }
+    $summe += $row['betrag'];
+
+    array_push($label, $row['beschreibung']);
+    array_push($data, $summe);
+}
 
 
-    header('Content-Type: application/json');
-    
-    $json = array(
+header('Content-Type: application/json');
 
-        "type" => "line",
-        "data" => array(
+$json = array(
 
-            "labels" => $label,
-            "datasets" => array(
-                array("label"=> "","fill"=>false,"borderColor"=>"rgb(255,0,0)", "data"=> $data)
+    "type" => "line",
+    "data" => array(
+
+        "labels" => $label,
+        "datasets" => array(
+            array("label" => "", "fill" => false, "borderColor" => "rgb(255,0,0)", "data" => $data)
         )
     )
 
-        
-
-        );
-
-    echo json_encode($json);
 
 
-?>
+);
+
+echo json_encode($json);
