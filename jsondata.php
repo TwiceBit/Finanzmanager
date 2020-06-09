@@ -41,12 +41,18 @@ $json
 
     header('Content-Type: application/json');
     
-    
-    $json->type = "line";
-    $json->data->labels = $label;
-    $json->data->datasets = array(
+    $json = array(
 
-        array("label"=> "","fill"=>false,"borderColor"=>"rgb(255,0,0)", "data"=> $data)
+        "type" => "line",
+        "data" => array(
+
+            "labels" => $label,
+            "datasets" => array(
+                array("label"=> "","fill"=>false,"borderColor"=>"rgb(255,0,0)", "data"=> $data)
+        )
+    )
+
+        
 
         );
 

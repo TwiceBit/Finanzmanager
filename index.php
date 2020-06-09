@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="jquery.js"></script>
-    <script src="Chart.js"></script>
+    <script src="./jquery.js"></script>
+    <script src="./Chart.js"></script>
 </head>
 <body>
     <div id="container">
